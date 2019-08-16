@@ -46,9 +46,9 @@ gulp.task('watch', function() {
 gulp.task('waitForStyles', gulp.series('styles', function() {
   return gulp.src(settings.themeLocation + 'style.css')
     .pipe(browserSync.stream());
-}))
+}));
 
 gulp.task('waitForScripts', gulp.series('scripts', function(cb) {
   browserSync.reload();
   cb()
-}))
+}));
