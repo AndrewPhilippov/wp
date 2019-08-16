@@ -1,5 +1,4 @@
 exports.themeLocation = './wp/wp-content/themes/University/';
-// exports.themeLocation = './wp/wp-content/themes/University/';
 exports.urlToPreview = 'http://localhost:8000';
 
 // If you're using Local by Flywheel you will
