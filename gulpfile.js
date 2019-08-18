@@ -36,17 +36,17 @@ gulp.task('watch', function() {
     ghostMode: false
   });
 
-  gulp.watch('./**/*.php', function() {
+  gulp.watch('./**/*.php', function(cb) {
     browserSync.reload();
+    cb()
   });
-  console.log(settings.themeLocation);
   gulp.watch(settings.themeLocation + 'css/**/*.css', gulp.parallel('waitForStyles'));
   gulp.watch([settings.themeLocation + 'js/modules/*.js', settings.themeLocation + 'js/scripts.js'], gulp.parallel('waitForScripts'));
 });
 
 gulp.task('waitForStyles', gulp.series('styles', function() {
   return gulp.src(settings.themeLocation + 'style.css')
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream().pipe(browserSync.preload()));
 }));
 
 gulp.task('waitForScripts', gulp.series('scripts', function(cb) {
