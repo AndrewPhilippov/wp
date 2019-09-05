@@ -8,7 +8,7 @@
             <h2 class="headline headline--medium">We think you&rsquo;ll like it here.</h2>
             <h3 class="headline headline--small">Why don&rsquo;t you check out the <strong>major</strong> you&rsquo;re
                 interested in?</h3>
-            <a href="<?= get_post_type_archive_link( 'program' ) ?>" class="btn btn--large btn--blue">Find Your
+            <a href="<?php echo get_post_type_archive_link( 'program' ); ?>" class="btn btn--large btn--blue">Find Your
                 Major</a>
         </div>
     </div>
@@ -21,24 +21,24 @@
 				<?php
 				$today          = date( 'Ymd' );
 				$homepageEvents = new WP_Query( array(
-					'post_type'      => 'event',
 					'posts_per_page' => 2,
+					'post_type'      => 'event',
 					'meta_key'       => 'event_date',
-					'orderby'        => 'meta_value_num', // WHY 'orderby' => 'meta_value_num',
+					'orderby'        => 'meta_value_num',
 					'order'          => 'ASC',
 					'meta_query'     => array(
-						array(  // specific to the event_date query
+						array(
 							'key'     => 'event_date',
 							'compare' => '>=',
 							'value'   => $today,
-							'type'    => 'numeric' // SURELY optional in this case
+							'type'    => 'numeric'
 						)
 					)
 				) );
 
 				while ( $homepageEvents->have_posts() ) {
 					$homepageEvents->the_post();
-				    get_template_part('template-parts/content', 'event');
+					get_template_part( 'template-parts/content', 'event' );
 				}
 				?>
 

@@ -4,7 +4,8 @@ get_header();
 
 while ( have_posts() ) {
 	the_post();
-	pageBanner(); ?>
+	pageBanner();
+	?>
 
     <div class="container container--narrow page-section">
         <div class="metabox metabox--position-up metabox--with-home-link">
@@ -24,10 +25,13 @@ while ( have_posts() ) {
 			echo '<h2 class="headline headline--medium">Related Program(s)</h2>';
 			echo '<ul class="link-list min-list">';
 			foreach ( $relatedPrograms as $program ) { ?>
-                <li><a href="<?= get_the_permalink( $program ); ?>"><?= get_the_title( $program ); ?></a></li>
+                <li><a href="<?php echo get_the_permalink( $program ); ?>"><?php echo get_the_title( $program ); ?></a>
+                </li>
 			<?php }
 			echo '</ul>';
-		} ?>
+		}
+
+		?>
 
     </div>
 
