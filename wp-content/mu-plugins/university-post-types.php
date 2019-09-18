@@ -17,7 +17,6 @@ function university_post_types() {
 	) );
 
 
-
 //    Event Post Type
 	register_post_type( 'event', array(
 		'supports'    => array( 'title', 'editor', 'excerpt' ),
