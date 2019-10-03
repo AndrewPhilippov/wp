@@ -55,17 +55,34 @@ function university_post_types() {
 
 //    Professor Post Type
 	register_post_type( 'professor', array(
-		'supports'    => array( 'title', 'editor', 'thumbnail' ),
-		'has_archive' => true,
-		'public'      => true,
-		'labels'      => array(
+		'show_in_rest' => true,
+		'supports'     => array( 'title', 'editor', 'thumbnail' ),
+		'has_archive'  => true,
+		'public'       => true,
+		'labels'       => array(
 			'name'          => 'Professors',
 			'add_new_item'  => 'Add New Professor',
 			'edit_item'     => 'Edit Professor',
 			'all_items'     => 'All Professors',
 			'singular_name' => 'Professor',
 		),
-		'menu_icon'   => 'dashicons-welcome-learn-more',
+		'menu_icon'    => 'dashicons-welcome-learn-more',
+	) );
+
+//  Note Post Type
+	register_post_type( 'note', array(
+		'show_in_rest' => true,
+		'supports'     => array( 'title', 'editor' ),
+		'public'       => false,
+		'show_ui'      => true,
+		'labels'       => array(
+			'name'          => 'Notes',
+			'add_new_item'  => 'Add New Note',
+			'edit_item'     => 'Edit Note',
+			'all_items'     => 'All Notes',
+			'singular_name' => 'Note'
+		),
+		'menu_icon'    => 'dashicons-welcome-write-blog'
 	) );
 }
 
