@@ -1,6 +1,6 @@
 <?php
 
-if ( ! is_user_logged_in() ) {
+if ( !is_user_logged_in() ) {
 	wp_redirect( esc_url( site_url( '/' ) ) );
 	exit;
 }
@@ -19,7 +19,7 @@ while ( have_posts() ) {
 			$userNotes = new WP_Query( array(
 				'post_type'      => 'note',
 				'posts_per_page' => -1,
-				'author'         => get_current_user_id(),
+				'author'         => get_current_user_id()
 			) );
 
 			while ( $userNotes->have_posts() ) {
